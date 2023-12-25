@@ -1,5 +1,3 @@
-# Leetcode
-
 # Update solved question
 
 By solving one LeetCode problem every day, I aim to enhance my **algorithmic understanding** and explore **various problem-solving** approaches.
