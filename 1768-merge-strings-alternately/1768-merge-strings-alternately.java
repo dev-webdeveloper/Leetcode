@@ -1,49 +1,92 @@
+/**
+
+(JavaScript)
+
+
+ * @param {string} word1
+ * @param {string} word2
+ * @return {string}
+ 
+var mergeAlternately = function(word1, word2) {
+    
+    // Initialize an empty string to store the merged result
+    let merged = '';
+    
+    // Initialize indices for both words
+    let i = 0; // Index for word1
+    let j = 0; // Index for word2
+
+    // Iterate through both words until both words are fully traversed
+    while (i < word1.length || j < word2.length) {
+        
+        // If there are characters remaining in word1
+        if (i < word1.length) {
+        
+            // Append the character from word1 to the merged string
+            merged += word1[i];
+            
+            // Move to the next character in word1
+            i++;
+            
+        }
+        
+        // If there are characters remaining in word2
+        if (j < word2.length) {
+            
+            // Append the character from word2 to the merged string
+            merged += word2[j];
+            
+            // Move to the next character in word2
+            
+            j++;
+        }
+    }
+
+    // Return the merged string
+    return merged;
+    
+};
+
+
+*/
+
+
 class Solution {
     public String mergeAlternately(String word1, String word2) {
         
-        // Create a StringBuilder to efficiently build the result string
-        StringBuilder result = new StringBuilder();
         
-        // Initialize a pointer for the first string
+        // StringBuilder in Java is a class used to create a mutable, or in other words, a modifiable succession of characters.
+        StringBuilder merged = new StringBuilder();
+        
         int i = 0;
-        
-        // Initialize a pointer for the second string
         int j = 0;
-
-        // Merge the strings alternately
-        while (i < word1.length() && j < word2.length()) {
+        
+        // Loop until both strings have been completely processed
+        while ( i < word1.length() || j < word2.length() ) {
             
-            // Append a character from the first string to the result
-            result.append(word1.charAt(i));
+            // Append character from word1 if available
+            if (i < word1.length() ) {
+                
+                merged.append (word1.charAt(i));
+                
+                i++;
+    
+            }
             
-            // Append a character from the second string to the result
-            result.append(word2.charAt(j));
+            // Append character from word2 if available  
+            if (j < word2.length() ) {
+                
+                merged.append (word2.charAt(j));
+                
+                j++;
+                
+            }
             
-            // Move to the next character in the first string
-            i++;
             
-            // Move to the next character in the second string
-            j++;
         }
-
-        // Append the remaining characters from the first string to the result
-        while (i < word1.length()) {
-            
-            result.append(word1.charAt(i));
-            
-            i++;
-        }
-
-        // Append the remaining characters from the second string to the result
-        while (j < word2.length()) {
-            
-            result.append(word2.charAt(j));
-            
-            j++;
-        }
-
-        // Convert the StringBuilder to a string and return the result
-        return result.toString();
+        
+        
+        return merged.toString();
         
         
         
