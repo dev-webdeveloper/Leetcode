@@ -1,3 +1,4 @@
+/** 
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
         
@@ -25,8 +26,36 @@ class Solution {
             return gcd(b, a % b);
             
         }
-
     
+    
+    }
+}
+
+*/
+
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+        
+        
+        // If str1 + str2 is not equal to str2 + str1, there is no common divisor string
+        if (!(str1 + str2).equals(str2 + str1)) {
+        
+            return "";
+        
+        }
+        
+        // The GCD length is the greatest common divisor of the lengths of the two strings
+        int gcdLength = gcd(str1.length(), str2.length());
+        
+        // Return the substring of str1 from 0 to gcdLength
+        return str1.substring(0, gcdLength);
+   
+    }
+    
+    // Helper method to calculate GCD of two numbers
+    private int gcd(int a, int b) {
+        
+        return b == 0 ? a : gcd(b, a % b);
     
     }
 }
